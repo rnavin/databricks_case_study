@@ -23,7 +23,7 @@ resources:
           depends_on:
             - task_key: case_study_bronze_update
 
-          existing_cluster_id: REPLACE_WITH_CLUSTER_ID
+          existing_cluster_id: 0530-181127-0oo9b217
 
           notebook_task:
             notebook_path: create_update_silver_layer
@@ -34,7 +34,7 @@ resources:
           depends_on:
             - task_key: case_study_silver_update
 
-          existing_cluster_id: REPLACE_WITH_CLUSTER_ID
+          existing_cluster_id: 0530-181127-0oo9b217
 
           notebook_task:
             notebook_path: create_update_golden_layer
