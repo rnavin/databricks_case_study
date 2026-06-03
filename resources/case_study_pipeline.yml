@@ -1,0 +1,41 @@
+resources:
+  jobs:
+    case_study_pipeline:
+      name: case_study_pipeline
+
+      git_source:
+        git_url: https://github.com/rnavin/databricks_case_study.git
+        git_provider: gitHub
+        git_branch: dev
+
+      tasks:
+
+        - task_key: case_study_bronze_update
+
+          existing_cluster_id: REPLACE_WITH_CLUSTER_ID
+
+          notebook_task:
+            notebook_path: create_update_bronze_layer
+            source: GIT
+
+        - task_key: case_study_silver_update
+
+          depends_on:
+            - task_key: case_study_bronze_update
+
+          existing_cluster_id: REPLACE_WITH_CLUSTER_ID
+
+          notebook_task:
+            notebook_path: create_update_silver_layer
+            source: GIT
+
+        - task_key: case_study_gold_update
+
+          depends_on:
+            - task_key: case_study_silver_update
+
+          existing_cluster_id: REPLACE_WITH_CLUSTER_ID
+
+          notebook_task:
+            notebook_path: create_update_golden_layer
+            source: GIT
