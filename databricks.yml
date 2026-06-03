@@ -1,0 +1,13 @@
+bundle:
+  name: databricks_case_study
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+
+    workspace:
+      host: https://dbc-2e3fb4ae-a588.cloud.databricks.com/?autoLogin=true&account_id=e31bedda-6ae1-4195-a343-0999a3f0fe6e&o=7474660538660808
